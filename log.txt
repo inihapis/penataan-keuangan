@@ -1,2 +1,20 @@
 [2019-03-11:11:37:52] Nama Admin : saiful => Edit Hutang => 17 => Sukses 
 
+[2025-03-01:03:51:06] Nama Admin : contoh => Edit Pemasukan => 1 => Gagal Edit
+
+[2025-13-01:02:30:25] Nama Admin : contoh => Edit Pemasukan => 26 => Gagal Edit
+
+[2025-20-01:01:14:01] Nama Admin : contoh => Edit Pemasukan => 26 => Gagal Edit
+
+[2025-20-01:01:27:16] Nama Admin :  => Edit Pemasukan => 26 => Sukses Edit
+
+[2025-20-01:01:27:25] Nama Admin :  => Edit Pemasukan => 27 => Sukses Edit
+
+2025-02-19 04:08:00 - Nama Admin :  => Edit Pengeluaran => 22 => Sukses Edit
+2025-02-19 04:08:11 - Nama Admin :  => Edit Pengeluaran => 23 => Sukses Edit
+2025-03-10 07:45:55 - Nama Admin :  => Edit Pengeluaran => 24 => Sukses Edit
+2025-03-10 07:58:37 - Nama Admin :  => Edit Pengeluaran => 25 => Sukses Edit
+[2025-10-03:07:59:03] Nama Admin :  => Edit Pemasukan => 1 => Sukses Edit
+
+[2025-10-03:07:59:31] Nama Admin :  => Edit Pemasukan => 26 => Sukses Edit
+

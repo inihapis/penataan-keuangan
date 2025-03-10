@@ -216,34 +216,31 @@ $sumber5text = mysqli_num_rows(mysqli_query($koneksi, "SELECT id_sumber FROM pen
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>ID Pengeluaran</th>
-                      <th>Tanggal</th>
-                      <th>Jumlah</th>
-                      <th>Sumber</th>
-					  <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>ID Pengeluaran</th>
-                      <th>Tanggal</th>
-                      <th>Jumlah</th>
-                      <th>Sumber</th>
-                      <th>Aksi</th>
-                    </tr>
+                    <th>ID Pemasukan</th>
+  <th>Tanggal</th>
+  <th>Jumlah</th>
+  <th>Sumber</th>
+  <th>Bank</th>
+  <th>Aksi</th>
+</tr>
+
                   </tfoot>
                   <tbody>
 				  <?php 
-$query = mysqli_query($koneksi,"SELECT * FROM pengeluaran");
+$query = mysqli_query($koneksi,"SELECT * FROM pengeluaran LEFT JOIN 
+        sumber ON pengeluaran.id_sumber = sumber.id_sumber
+    LEFT JOIN 
+        bank ON pengeluaran.id_bank = bank.id_bank");
 $no = 1;
 while ($data = mysqli_fetch_assoc($query)) 
 {
 ?>
                     <tr>
-                      <td><?=$data['id_pengeluaran']?></td>
-                      <td><?=$data['tgl_pengeluaran']?></td>
-                      <td>Rp. <?=number_format($data['jumlah'],2,',','.');?></td>
-                      <td><?=$data['id_sumber']?></td>
+                    <td><?= $data['id_pengeluaran'] ?></td>
+  <td><?= $data['tgl_pengeluaran'] ?></td>
+  <td>Rp. <?= number_format($data['jumlah'], 2, ',', '.'); ?></td>
+  <td><?= $data['nama'] ?></td>
+  <td><?= $data['nama_bank'] ?></td>
 					  <td>
                     <!-- Button untuk modal -->
 <a href="#" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $data['id_pengeluaran']; ?>"></a>
@@ -285,6 +282,41 @@ while ($row = mysqli_fetch_array($query_edit)) {
 <div class="form-group">
 <label>Jumlah</label>
 <input type="text" name="jumlah" class="form-control" value="<?php echo $row['jumlah']; ?>">      
+</div>
+
+<div class="form-group">
+<label>BANK</label>
+<?php
+if ($row['id_bank'] == 1){
+	$querynama1 = mysqli_query($koneksi, "SELECT nama_bank FROM bank where id_bank=1");
+	$querynama1 = mysqli_fetch_array($querynama1);
+} else if ($row['id_bank'] == 2){
+	$querynama2 = mysqli_query($koneksi, "SELECT nama_bank FROM bank where id_bank=2");
+	$querynama2 = mysqli_fetch_array($querynama2);
+} else if ($row['id_bank'] == 3){
+	$querynama3 = mysqli_query($koneksi, "SELECT nama_bank FROM bank where id_bank=3");
+	$querynama3 = mysqli_fetch_array($querynama3);
+} else if ($row['id_bank'] == 4){
+	$querynama4 = mysqli_query($koneksi, "SELECT nama_bank FROM bank where id_bank=4");
+	$querynama4 = mysqli_fetch_array($querynama4);
+}
+ else if ($row['id_bank'] == 5){
+	$querynama5 = mysqli_query($koneksi, "SELECT nama_bank FROM bank where id_bank=5");
+	$querynama5 = mysqli_fetch_array($querynama5);
+}
+?>
+
+<select class="form-control" name='id_bank'>
+<?php 
+$queri = mysqli_query($koneksi, "SELECT * FROM bank");
+	$no = 1;
+	$noo = 1;
+while($querynama = mysqli_fetch_array($queri)){
+
+echo '<option value="'.$no++.'">'.$noo++.'.'.$querynama["nama_bank"].'</option>';
+}
+?>
+</select>     
 </div>
 
 <div class="form-group">
